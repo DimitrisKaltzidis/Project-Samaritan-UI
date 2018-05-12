@@ -1,0 +1,322 @@
+/*
+ * Copyright (c) 2014, 2016 Gonçalo Baltazar <me@goncalomb.com>
+ * Samaritan is released under the terms of the MIT License,
+ * check the file LICENSE.txt.
+ */
+
+@font-face {
+    font-family: "Mono MMM 5";
+    src: url("font/MagdaClean.otf");
+}
+
+body {
+
+}
+
+body.default {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    overflow-y: scroll;
+    margin: 0;
+    color: white;
+    background-color: #FFFFFF;
+    transition-duration: 2000ms;
+    position: absolute;
+    top: 35%;
+    right: 0;
+    left: 0;
+}
+
+body.image {
+    width: 100%;
+    height: 100%;
+    background-image: url("images/samaritan_background.JPG");
+    background-size: cover;
+}
+
+body.gradient, html {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    margin: 0;
+    background-color: white;
+    background: -moz-radial-gradient(center, ellipse cover, #FFFFFF 0%, #FFFFFF 58%, #b6b6b6 100%, #b6b6b6 100%); /* ff3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #FFFFFF), color-stop(58%, #FFFFFF), color-stop(100%, #b6b6b6), color-stop(100%, #b6b6b6)); /* safari4+,chrome */
+    background: -webkit-radial-gradient(center, ellipse cover, #FFFFFF 0%, #FFFFFF 58%, #b6b6b6 100%, #b6b6b6 100%); /* safari5.1+,chrome10+ */
+    background: -o-radial-gradient(center, ellipse cover, #FFFFFF 0%, #FFFFFF 58%, #b6b6b6 100%, #b6b6b6 100%); /* opera 11.10+ */
+    background: -ms-radial-gradient(center, ellipse cover, #FFFFFF 0%, #FFFFFF 58%, #b6b6b6 100%, #b6b6b6 100%); /* ie10+ */
+    background: radial-gradient(ellipse at center, #FFFFFF 0%, #FFFFFF 58%, #b6b6b6 100%, #b6b6b6 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#b6b6b6', GradientType=1); /* ie6-9 */
+
+}
+
+body.color-invert {
+    color: black;
+    background-color: #f9f9f9;
+}
+
+/* samaritan */
+
+#samaritan {
+    font-family: 'Mono MMM 5', 'Nova Mono';
+    text-align: center;
+    margin-top: 22%;
+}
+
+#samaritan .hidden {
+    opacity: 0;
+}
+
+#samaritan .text {
+    display: none;
+    margin: 0 auto;
+    font-size: 23px;
+    line-height: 23px;
+    min-height: 23px;
+    color: black;
+    white-space: nowrap;
+}
+
+#samaritan .text::after {
+    content: "";
+}
+
+.color-invert #samaritan.mode-text .text {
+    color: black;
+}
+
+#samaritan.mode-text .text {
+    display: inline-block;
+}
+
+#samaritan.mode-text-black .text {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    letter-spacing: 8px;
+    padding: 5px 0px 5px 10px;
+    border-radius: 2px;
+    transition-duration: 200ms;
+}
+
+#samaritan .line {
+    display: none;
+    margin: 0 auto;
+    width: 30px;
+    border-bottom: 2px solid black;
+    transition-duration: 200ms;
+}
+
+.color-invert #samaritan.mode-text .line {
+    border-bottom-color: black;
+}
+
+#samaritan.mode-text .line {
+    display: block;
+}
+
+#samaritan .arrow {
+    display: none;
+    border-bottom: 10px solid transparent;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+}
+
+#samaritan.mode-text .arrow {
+    display: inline-block;
+    margin-top: 2px;
+}
+
+#samaritan .arrow-animation {
+    border-bottom: 15px solid #330000;
+    -webkit-animation: samaritan-arrow-animation 1000ms alternate infinite linear;
+    animation: samaritan-arrow-animation 1000ms alternate infinite linear;
+}
+
+@-webkit-keyframes samaritan-arrow-animation {
+    from {
+        border-bottom-color: #330000;
+    }
+    to {
+        border-bottom-color: #cc0000;
+    }
+}
+
+@keyframes samaritan-arrow-animation {
+    from {
+        border-bottom-color: #330000;
+    }
+    to {
+        border-bottom-color: #cc0000;
+    }
+}
+
+#samaritan .message-box {
+    display: none;
+    text-align: left;
+    margin: 0 auto;
+    width: 500px;
+    transition-duration: 500ms;
+}
+
+#samaritan.mode-message-box .message-box {
+    display: block;
+}
+
+#samaritan .message-box .message-box-title {
+    font-size: 18px;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    padding: 2px 15px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+#samaritan .message-box .message-box-text {
+    font-size: 16px;
+    color: white;
+    background-color: black;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    padding: 5px 15px;
+    min-height: 45px;
+}
+
+#samaritan .message-box .message-box-actual-text {
+    font-size: 16px;
+    color: white;
+    word-wrap: break-word;
+    display: block;
+    min-height: 45px;
+}
+
+#samaritan .message-box .message-box-footer {
+    height: 15px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+#samaritan .fast-flash {
+    animation: fast-flash 300ms linear infinite;
+}
+
+@keyframes fast-flash {
+    0% {
+        opacity: 1;
+    }
+    49% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* other */
+
+#info, #subtitle {
+    font-family: 'Mono MMM 5', 'Nova Mono';
+    font-size: 15px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+#info {
+    transition-duration: 1000ms;
+}
+
+#info a {
+    color: #428bca;
+    text-decoration: none;
+}
+
+#info a:hover, #info a:focus {
+    color: #2a6496;
+    text-decoration: underline;
+}
+
+#subtitle {
+    font-style: italic;
+    transition-duration: 200ms;
+}
+
+/*
+    progressBar
+*/
+.progressBarContainer {
+    display: block;
+    border: 2px solid black;
+    /*height: 12px;*/
+    height: 20px;
+    padding: 2px;
+    font-size: 10px;
+    letter-spacing: -1px;
+}
+
+.progressBar {
+    display: block;
+    background: #fa0000;
+    width: 2%;
+    height: 12px;
+}
+
+/*Separators*/
+
+.leftSeparator {
+    border-style: dotted;
+    border-width: 0px 2px 0px 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.rightSeparator {
+    border-style: dotted;
+    border-width: 0px 0px 0px 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*Command line*/
+
+.commandLine {
+    background: transparent;
+    border: 1px solid #000000;
+    color: black;
+    width: 100%;
+    outline-width: 0;
+    padding: 1px;
+    /*outline: none;*/
+    font-family: 'Mono MMM 5', 'Nova Mono';
+}
+
+.commandLine::selection {
+    border: 1px solid #000000;
+}
+
+.execute {
+    font-family: 'Mono MMM 5', 'Nova Mono';
+    text-align: center;
+    border: none;
+    outline-width: 0;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.padding-left-0 {
+    padding-left: 0px;
+}
+
+/*Versioning*/
+
+.version {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    font-size: small;
+    margin-right: 10px;
+    font-family: 'Mono MMM 5', 'Nova Mono';
+}
